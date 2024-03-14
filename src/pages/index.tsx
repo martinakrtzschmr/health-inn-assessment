@@ -1,5 +1,5 @@
-import Head from "next/head";
-import Image from "next/image";
+import Head from 'next/head';
+import Image from 'next/image';
 import {
   MainContainer,
   ContentContainer,
@@ -9,8 +9,8 @@ import {
   Title,
   Icon,
   LinkedIn,
-} from "../styles/pages/Home";
-import { FaLinkedinIn } from "react-icons/fa";
+} from '../styles/pages/Home';
+import { FaLinkedinIn } from 'react-icons/fa';
 
 export default function Home() {
   return (
