@@ -32,7 +32,7 @@ export default function Home() {
       </Header>
 
       <ContentContainer>
-        <Title>Coloque seu layout aqui.</Title>
+        
       </ContentContainer>
 
       <Footer>
