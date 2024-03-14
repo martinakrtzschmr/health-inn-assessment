@@ -11,6 +11,7 @@ import {
   LinkedIn,
 } from '../styles/pages/Home';
 import { FaLinkedinIn } from 'react-icons/fa';
+import UserList from '../components/user/UserList';
 
 export default function Home() {
   return (
@@ -32,7 +33,7 @@ export default function Home() {
       </Header>
 
       <ContentContainer>
-        
+        <UserList />
       </ContentContainer>
 
       <Footer>
