@@ -1,0 +1,142 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "active": "false",
+      "name": "João Silva",
+      "cpf": 12345678900,
+      "rg": 12345678,
+      "birthday": "1980-05-15",
+      "email": "joao.silva@example.com",
+      "phone": 11987654321,
+      "address": "São Paulo",
+      "role": "Enfermeiro",
+      "departmentId": "1",
+      "companieId": "1"
+    },
+    {
+      "id": "2",
+      "active": "true",
+      "name": "Maria Souza",
+      "cpf": 98765432100,
+      "rg": 12345677,
+      "birthday": "1980-05-15",
+      "email": "joao.silva@example.com",
+      "phone": 11987654321,
+      "address": "São Paulo",
+      "role": "Enfermeiro",
+      "departmentId": "2",
+      "companieId": "2"
+    },
+    {
+      "id": "3",
+      "active": "true",
+      "name": "Pedro Santos",
+      "cpf": 11122233344,
+      "rg": 11122234,
+      "birthday": "1990-03-10",
+      "email": "pedro.santos@example.com",
+      "phone": 11543216789,
+      "address": "São Paulo",
+      "role": "Recepcionista",
+      "departmentId": "3",
+      "companieId": "3"
+    },
+    {
+      "id": "4",
+      "active": "true",
+      "name": "Ana Oliveira",
+      "cpf": 55566677788,
+      "rg": 55566678,
+      "birthday": "1988-07-25",
+      "email": "ana.oliveira@example.com",
+      "phone": 11999999999,
+      "address": "São Paulo",
+      "role": "Cirurgião",
+      "departmentId": "4",
+      "companieId": "4"
+    },
+    {
+      "id": "5",
+      "active": "true",
+      "name": "Lucas Pereira",
+      "cpf": 22233344455,
+      "rg": 22233345,
+      "birthday": "1983-12-05",
+      "email": "lucas.pereira@example.com",
+      "phone": 11111111111,
+      "address": "São Paulo",
+      "role": "Fisioterapeuta",
+      "departmentId": "5",
+      "companieId": "5"
+    },
+    {
+      "id": "05cc",
+      "active": "true",
+      "name": "Martin",
+      "cpf": 12345678900,
+      "rg": 12345678,
+      "birthday": "1980-05-15",
+      "email": "martin@example.com",
+      "phone": 11987654321,
+      "address": "São Paulo",
+      "role": "Enfermeiro",
+      "departmentId": "1",
+      "companieId": "6"
+    }
+  ],
+  "departments": [
+    {
+      "id": "1",
+      "name": "Enfermagem"
+    },
+    {
+      "id": "2",
+      "name": "Administração"
+    },
+    {
+      "id": "3",
+      "name": "Atendimento"
+    },
+    {
+      "id": "4",
+      "name": "Médico"
+    },
+    {
+      "id": "5",
+      "name": "Fisioterapia"
+    }
+  ],
+  "companies": [
+    {
+      "id": "1",
+      "name": "Empresa 1",
+      "cnpj": 44317554000192
+    },
+    {
+      "id": "2",
+      "name": "Empresa 2",
+      "cnpj": 24852820000170
+    },
+    {
+      "id": "3",
+      "name": "Empresa 3",
+      "cnpj": 80525488000100
+    },
+    {
+      "id": "4",
+      "name": "Empresa 4",
+      "cnpj": 95155331000107
+    },
+    {
+      "id": "5",
+      "name": "Empresa 5",
+      "cnpj": 67587029000192
+    },
+    {
+      "id": "6",
+      "name": "Empresa 6",
+      "cnpj": 40054060000101
+    }
+  ]
+}
