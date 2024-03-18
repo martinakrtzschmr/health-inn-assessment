@@ -10,10 +10,20 @@ import Document, {
 import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
-  render(): ReactElement {
+  render(): JSX.Element {
     return (
       <Html lang="en">
-        <Head></Head>
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="description" content="Health Inn users page" />
+          <meta
+            name="keywords"
+            content="Health Inn, users, cadastro, usuário"
+          />
+          <meta property="og:title" content="Health Inn" />
+          <meta property="og:description" content="Health Inn users page" />
+          {/* <meta property="og:image" content="image_url_here" /> */}
+        </Head>
         <body>
           <Main />
           <NextScript />
