@@ -1,8 +1,6 @@
 import React from 'react';
-import { ButtonOutline } from '../../styles/components/Buttons';
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
