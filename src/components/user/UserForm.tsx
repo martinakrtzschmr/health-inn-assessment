@@ -1,7 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { User } from '../../types';
+import { useGetCompanies } from '../../hooks/useCompanieData';
+import { useGetDepartments } from '../../hooks/useDepartmentData';
+import { ButtonOutline } from '../../styles/components/Buttons';
+import { Option } from '../../styles/components/Select';
+import { Companie, Department, User } from '../../types';
 import FormField from '../ui/FormField';
+import SelectField from '../ui/SelectField';
 
 interface UserFormProps extends React.ComponentPropsWithoutRef<'div'> {
   user?: User;
@@ -17,6 +22,11 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit }) => {
     defaultValues: user ?? {},
   });
 
+  const { data: companieData, isLoading: isLoadingCompanies } =
+    useGetCompanies();
+  const { data: departmentsData, isLoading: isLoadingDepartments } =
+    useGetDepartments();
+
   const activeProps = register('active');
   const nameProps = register('name', {
     required: '"Nome" não pode estar em branco.',
@@ -25,22 +35,22 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit }) => {
     required: '"CPF" não pode estar em branco.',
     minLength: {
       value: 11,
-      message: '"CPF" deve conter 11 digitos'
+      message: '"CPF" deve conter 11 digitos',
     },
     maxLength: {
       value: 11,
-      message: '"CPF" deve conter 11 digitos'
-    }
+      message: '"CPF" deve conter 11 digitos',
+    },
   });
   const rgProps = register('rg', {
     required: '"RG" não pode estar em branco.',
     minLength: {
       value: 10,
-      message: '"RG" deve conter 10 digitos'
+      message: '"RG" deve conter 10 digitos',
     },
     maxLength: {
       value: 10,
-      message: '"RG" deve conter 10 digitos'
+      message: '"RG" deve conter 10 digitos',
     },
   });
   const birthdayProps = register('birthday', {
@@ -53,6 +63,12 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit }) => {
   });
   const roleProps = register('role', {
     required: '"Cargo" não pode estar em branco.',
+  });
+  const departmentsProps = register('departmentId', {
+    required: '"Empresa" não pode estar em branco.',
+  });
+  const companiesProps = register('companieId', {
+    required: '"Empresa" não pode estar em branco.',
   });
 
   return (
@@ -117,6 +133,28 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit }) => {
         error={errors.role && errors.role.message}
         register={roleProps}
       />
+      {!isLoadingDepartments && (
+        <SelectField<Department>
+          options={departmentsData}
+          renderOptions={(option) => (
+            <Option key={option.id} value={option.id}>
+              {option.name}
+            </Option>
+          )}
+          register={departmentsProps}
+        />
+      )}
+      {!isLoadingCompanies && (
+        <SelectField<Companie>
+          options={companieData}
+          renderOptions={(option) => (
+            <Option key={option.cnpj} value={option.id}>
+              {option.name}
+            </Option>
+          )}
+          register={companiesProps}
+        />
+      )}
 
       <ButtonOutline disabled={isSubmitting} type="submit">
         {isSubmitting ? 'Atualizando' : 'Enviar'}
