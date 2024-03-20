@@ -29,19 +29,18 @@ export const EditButton = styled.button`
   }
 `;
 
-export const ButtonOutline = styled.button`
-  border: 1px solid ${colors.solidYellow};
+export const ButtonOutline = styled.button<{ $buttonColor?: string; }>`
+  border: 1px solid ${props => colors[props.$buttonColor] || colors.darkBlue};
   background-color: ${colors.white};
-  color: ${colors.solidYellow};
-
+  color: ${props => colors[props.$buttonColor] || colors.darkBlue};
   border-radius: 10px;
+  margin-left: 5px;
   padding: 5px;
-
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-duration: 150ms;
 
   &:hover {
-    background-color: ${colors.solidYellow};
+    background-color: ${props => colors[props.$buttonColor] || colors.darkBlue};
     color: ${colors.white}
   }
 `;

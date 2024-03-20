@@ -13,12 +13,14 @@ interface IDialog extends React.ComponentPropsWithoutRef<'div'> {
   title: string;
   openButtonLabel: string;
   closeButtonLabel: string;
+  buttonColor?: string;
 }
 
 const Dialog: React.FC<IDialog> = ({
   title,
   openButtonLabel,
   closeButtonLabel,
+  buttonColor = '',
   children,
 }) => {
   const [open, setOpen] = useState(false);
@@ -29,7 +31,7 @@ const Dialog: React.FC<IDialog> = ({
 
   return (
     <>
-      <ButtonOutline onClick={toggleOpen}>{openButtonLabel}</ButtonOutline>
+      <ButtonOutline $buttonColor={buttonColor} onClick={toggleOpen}>{openButtonLabel}</ButtonOutline>
 
       {open && (
         <DialogBackground>
