@@ -1,6 +1,6 @@
 export interface User {
   id: string;
-  active: boolean;
+  active: string | boolean;
   name: string;
   cpf: number | null;
   rg: number | null;
@@ -11,7 +11,7 @@ export interface User {
   role: string;
   department: Department;
   departmentId: string;
-  companie: Company;
+  companie: Companie;
   companieId: string;
 }
 
@@ -22,7 +22,7 @@ export interface Department {
   name: string;
 }
 
-export interface Company {
+export interface Companie {
   id: string;
   name: string;
   cnpj: string;
