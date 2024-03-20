@@ -10,7 +10,6 @@ export const Card = styled.div`
   border-radius: 0.5rem;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  width: 24%;
   margin-bottom: 5px;
 
   @media (max-width: ${device.tablet}) {
