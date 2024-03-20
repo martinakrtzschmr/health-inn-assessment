@@ -9,11 +9,17 @@ import {
   Title,
   Icon,
   LinkedIn,
+  ContentHeader,
 } from '../styles/pages/Home';
 import { FaLinkedinIn } from 'react-icons/fa';
 import UserList from '../components/user/UserList';
+import Dialog from '../components/dialog';
+import UserForm from '../components/user/UserForm';
+import { useMutateNewUser } from '../hooks/useUserMutate';
 
 export default function Home() {
+  const { mutateAsyncSubmit } = useMutateNewUser();
+
   return (
     <MainContainer>
       <Head>
@@ -33,6 +39,16 @@ export default function Home() {
       </Header>
 
       <ContentContainer>
+        <ContentHeader>
+          <Dialog
+            title="Novo Usuário"
+            openButtonLabel="Novo Usuário"
+            closeButtonLabel="Fechar"
+          >
+            <UserForm onSubmit={mutateAsyncSubmit} />
+          </Dialog>
+        </ContentHeader>
+
         <UserList />
       </ContentContainer>
 

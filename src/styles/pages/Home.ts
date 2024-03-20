@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import colors from '../colors';
+import { size } from '../breakpoints';
 
 export const MainContainer = styled.div`
   display: flex;
@@ -7,10 +8,14 @@ export const MainContainer = styled.div`
   width: 100vw;
   height: 100vh;
   color: ${colors.white};
+  background: ${colors.veryLightGray};
 `;
 
 export const ContentContainer = styled.div`
-  background: ${colors.veryLightGray};
+  max-width: ${size.laptopL};
+  margin-left: auto;
+  margin-right: auto;
+
   background-size: cover;
   height: 90%;
   width: 100%;
@@ -19,6 +24,19 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+`;
+
+export const ContentHeader = styled.div`
+  display: flex;
+  width: 100%;
+  height: 60px;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  gap: 5px;
+  padding: 10px;
+  background-color: ${colors.white};
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 `;
 
 export const Header = styled.div`
