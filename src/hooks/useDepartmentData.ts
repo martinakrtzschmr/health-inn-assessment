@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import { getUser, getUsers } from '../services/users';
+import { getDepartment, getDepartments } from '../services/users';
 
-export const useGetUsers = () => {
+export const useGetDepartments = () => {
   const { data, isLoading, isError, error } = useQuery({
-    queryFn: getUsers,
-    queryKey: ['usersList'],
+    queryFn: getDepartments,
+    queryKey: ['departmentsList'],
     // retry: false,
     refetchInterval: 30 * 1000,
   });
@@ -12,12 +12,11 @@ export const useGetUsers = () => {
   return { data, isLoading, isError, error };
 };
 
-export const useGetUser = (id) => {
+export const useGetDepartment = (id: string) => {
   const { data, isLoading, isError, error } = useQuery({
-    queryFn: () => getUser(id),
-    queryKey: ['user'],
-    // retry: false,
-    refetchInterval: 30 * 1000,
+    queryFn: () => getDepartment(id),
+    queryKey: ['department'],
+    retry: false
   });
 
   return { data, isLoading, isError, error };
