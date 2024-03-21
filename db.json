@@ -69,34 +69,6 @@
       "role": "Fisioterapeuta",
       "departmentId": "5",
       "companieId": "5"
-    },
-    {
-      "id": "05cc",
-      "active": "true",
-      "name": "Martin",
-      "cpf": 12345678900,
-      "rg": 12345678,
-      "birthday": "15-05-1980",
-      "email": "martin@example.com",
-      "phone": 11987654321,
-      "address": "São Paulo",
-      "role": "Enfermeiro",
-      "departmentId": "1",
-      "companieId": "6"
-    },
-    {
-      "id": "8d6a",
-      "active": "true",
-      "name": "Martin Alexander",
-      "cpf": "44314665840",
-      "rg": "5066828381",
-      "birthday": "16/09/1995",
-      "email": "alexander@gmail.com",
-      "phone": "119595959595",
-      "address": "Rua Brasil",
-      "role": "Programador",
-      "departmentId": "2",
-      "companieId": "1"
     }
   ],
   "departments": [
