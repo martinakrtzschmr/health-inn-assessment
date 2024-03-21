@@ -16,8 +16,8 @@ export const useGetUser = (id) => {
   const { data, isLoading, isError, error } = useQuery({
     queryFn: () => getUser(id),
     queryKey: ['user'],
-    // retry: false,
-    refetchInterval: 30 * 1000,
+    retry: false,
+    // refetchInterval: 30 * 1000,
   });
 
   return { data, isLoading, isError, error };
