@@ -1,4 +1,3 @@
-import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useGetCompanies } from '../../hooks/useCompanieData';
 import { useGetDepartments } from '../../hooks/useDepartmentData';
@@ -16,11 +15,15 @@ interface UserFormProps extends React.ComponentPropsWithoutRef<'div'> {
 const UserForm: React.FC<UserFormProps> = ({ user, onSubmit }) => {
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<User>({
+    mode: 'onChange',
     defaultValues: user ?? {},
   });
+
+  const watchFields = watch(['email', 'phone']);
 
   const { data: companieData, isLoading: isLoadingCompanies } =
     useGetCompanies();
@@ -32,6 +35,7 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit }) => {
     required: '"Nome" não pode estar em branco.',
   });
   const cpfProps = register('cpf', {
+    valueAsNumber: true,
     required: '"CPF" não pode estar em branco.',
     minLength: {
       value: 11,
@@ -43,6 +47,7 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit }) => {
     },
   });
   const rgProps = register('rg', {
+    valueAsNumber: true,
     required: '"RG" não pode estar em branco.',
     minLength: {
       value: 10,
@@ -54,10 +59,24 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit }) => {
     },
   });
   const birthdayProps = register('birthday', {
+    // valueAsDate: true,
     required: '"Data de Nascimento" não pode estar em branco.',
   });
-  const emailProps = register('email');
-  const phoneProps = register('phone');
+  const emailProps = register('email', {
+    validate: (value) => {
+      if (value || watchFields[1])
+        return true;
+      else return 'O campo "Email" ou "Telefone" precisam ser preenchidos';
+    },
+  });
+  const phoneProps = register('phone', {
+    valueAsNumber: true,
+    validate: (value) => {
+      if (value || watchFields[0])
+        return true;
+      else return 'O campo "Email" ou "Telefone" precisam ser preenchidos';
+    },
+  });
   const addressProps = register('address', {
     required: '"Endereço" não pode estar em branco.',
   });

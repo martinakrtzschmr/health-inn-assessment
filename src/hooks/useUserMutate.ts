@@ -27,7 +27,7 @@ export const useMutateNewUser = () => {
       data.active = `${data.active}`;
 
       return addUser(data);
-    }
+    },
   });
 
   const mutateAsyncSubmit = (data) => {

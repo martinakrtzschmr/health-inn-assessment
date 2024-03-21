@@ -34,6 +34,13 @@ export const getUser = async (id: string): Promise<User> => {
 
 export const addUser = async (user: UserPostData): Promise<UserPostData> => {
   try {
+    const existingUser = await fetch(`http://localhost:3003/users/?cpf=${user.cpf}&active=true`);
+    console.log(existingUser);
+
+    if (existingUser) {
+      throw new Error('Usuário com CPF já cadastrado e ativo.');
+    }
+
     const response = await fetch('http://localhost:3003/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
